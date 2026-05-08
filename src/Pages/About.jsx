@@ -69,8 +69,8 @@ const ProfileImage = memo(() => (
   </div>
 ));
 
-const StatCard = memo(({ icon: Icon, color, value, label, description, animation }) => (
-  <div data-aos={animation} data-aos-duration={1300} className="relative group">
+const StatCard = memo(({ icon: Icon, color, value, label, description, animation, onClick }) => (
+  <div data-aos={animation} data-aos-duration={1300} className="relative group cursor-pointer" onClick={onClick}>
     <div className="relative z-10 bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-white/10 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between">
       <div className={`absolute -z-10 inset-0 bg-gradient-to-br ${color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
 
@@ -119,7 +119,7 @@ const AboutPage = () => {
     return {
       totalProjects: UserInfo.projects.length,
       totalCertificates: UserInfo.certificates.length,
-      YearExperience: 2 // Approximate based on "3rd year student"
+      YearExperience: 0 // Updated to 0 for fresher status
     };
   }, []);
 
@@ -156,6 +156,7 @@ const AboutPage = () => {
       label: "Total Projects",
       description: "Innovative web solutions crafted",
       animation: "fade-right",
+      tabIndex: 0,
     },
     {
       icon: Award,
@@ -164,6 +165,7 @@ const AboutPage = () => {
       label: "Certificates",
       description: "Professional skills validated",
       animation: "fade-up",
+      tabIndex: 1,
     },
     {
       icon: Globe,
@@ -172,8 +174,14 @@ const AboutPage = () => {
       label: "Years of Experience",
       description: "Continuous learning journey",
       animation: "fade-left",
+      tabIndex: 0, // Default to projects or maybe about
     },
   ], [totalProjects, totalCertificates, YearExperience]);
+
+  const handleStatClick = (tabIndex) => {
+    localStorage.setItem('portfolioTab', tabIndex);
+    window.location.hash = "#Portfolio";
+  };
 
   return (
     <div
@@ -233,7 +241,7 @@ const AboutPage = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/drive/folders/1WpN51XNuUsW8s9ShZY1GxLQu-Hkx7ljh" className="w-full lg:w-auto">
+              <a href="/venky-resume.pdf" download="venky-resume.pdf" className="w-full lg:w-auto">
                 <button
                   data-aos="fade-up"
                   data-aos-duration="800"
@@ -242,7 +250,7 @@ const AboutPage = () => {
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download RESUME
                 </button>
               </a>
-              <a href="#Portofolio" className="w-full lg:w-auto">
+              <a href="#Portfolio" className="w-full lg:w-auto">
                 <button
                   data-aos="fade-up"
                   data-aos-duration="1000"
@@ -257,13 +265,11 @@ const AboutPage = () => {
           <ProfileImage />
         </div>
 
-        <a href="#Portofolio">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
-            {statsData.map((stat) => (
-              <StatCard key={stat.label} {...stat} />
-            ))}
-          </div>
-        </a>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          {statsData.map((stat) => (
+            <StatCard key={stat.label} {...stat} onClick={() => handleStatClick(stat.tabIndex)} />
+          ))}
+        </div>
       </div>
 
     </div>

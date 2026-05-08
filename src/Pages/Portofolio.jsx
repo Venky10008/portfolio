@@ -110,7 +110,6 @@ const techStacks = [
   { icon: "reactjs.svg", language: "ReactJS" },
   { icon: "vite.svg", language: "Vite" },
   { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
   { icon: "firebase.svg", language: "Firebase" },
   { icon: "MUI.svg", language: "Material UI" },
   { icon: "vercel.svg", language: "Vercel" },
@@ -137,6 +136,13 @@ export default function FullWidthTabs() {
   useEffect(() => {
     setProjects(UserInfo.projects);
     setCertificates(UserInfo.certificates);
+
+    // Check for tab preference from other pages
+    const savedTab = localStorage.getItem('portfolioTab');
+    if (savedTab !== null) {
+      setValue(parseInt(savedTab));
+      localStorage.removeItem('portfolioTab');
+    }
   }, []);
 
 

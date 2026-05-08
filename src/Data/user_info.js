@@ -24,18 +24,18 @@ const UserInfo = {
     projects: [
         {
             id: 1,
-            Title: "AI-Based QA App",
-            Description: "A sophisticated AI-driven mobile application designed to provide instant and accurate answers to user queries. This project involved complex workflow orchestration and a seamless integration between the frontend and large language model APIs. The app features a clean, intuitive interface that makes AI accessible to everyday users.",
-            Link: "https://example.com/ai-qa",
-            Img: "/code_helper.png",
-            TechStack: ["FlutterFlow", "OpenAI API", "Firebase Authentication", "Firestore", "Google Cloud Functions"],
+            Title: "Opportunity India",
+            Description: "Opportunity India is a hyperlocal platform that helps students and job seekers discover opportunities in their city. It highlights jobs, hackathons, government notifications, free courses, and startup events through a clean and mobile-friendly web interface.",
+            Link: "https://opportunity-india.netlify.app/",
+            Img: "/opportunity_india.png",
+            TechStack: ["React.js", "Tailwind CSS", "Vite", "JavaScript (ES6+)", "Responsive UI Design"],
             Features: [
-                "Advanced Natural Language Processing for accurate query understanding",
-                "Secure user authentication and personalized history tracking",
-                "Real-time streaming responses for a smooth chat experience",
-                "Cross-platform compatibility (iOS and Android)",
-                "Custom-designed UI components for enhanced user engagement",
-                "Scalable backend architecture to handle high traffic"
+                "City-focused search experience to quickly find nearby opportunities",
+                "Dedicated sections for jobs, hackathons, and government updates",
+                "Curated free courses and startup event listings for learners",
+                "Modern hero section with clear call-to-action and easy navigation",
+                "Fully responsive layout optimized for desktop and mobile devices",
+                "Clean visual design built for readability and quick exploration"
             ]
         },
         {
@@ -82,7 +82,7 @@ const UserInfo = {
         },
         {
             id: 3,
-            Img: "/3.png"
+            Img: "/google_introduction_certificate.png"
         },
         {
             id: 4,

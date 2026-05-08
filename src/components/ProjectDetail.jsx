@@ -100,6 +100,7 @@ const ProjectDetails = () => {
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const isOpportunityIndia = project?.Img?.includes("opportunity_india");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -202,13 +203,14 @@ const ProjectDetails = () => {
             </div>
 
             <div className="space-y-6 md:space-y-10 animate-slideInRight">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group aspect-video bg-[#0a0a1a]">
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
                   src={project.Img}
                   alt={project.Title}
-                  className="w-full  object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+                  className="w-full h-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+                  style={{ objectPosition: isOpportunityIndia ? "left center" : "center" }}
                   onLoad={() => setIsImageLoaded(true)}
                 />
                 <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl" />

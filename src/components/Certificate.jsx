@@ -22,6 +22,7 @@ const Certificate = ({ ImgSertif }) => {
 				sx={{
 					position: "relative",
 					overflow: "hidden",
+					aspectRatio: "16 / 11",
 					borderRadius: 2,
 					boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
 					transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -51,7 +52,7 @@ const Certificate = ({ ImgSertif }) => {
 							left: 0,
 							right: 0,
 							bottom: 0,
-							backgroundColor: "rgba(0, 0, 0, 0.1)",
+							backgroundColor: "rgba(0, 0, 0, 0.05)",
 							zIndex: 1,
 						},
 					}}>
@@ -61,9 +62,11 @@ const Certificate = ({ ImgSertif }) => {
 						alt="Certificate"
 						style={{
 							width: "100%",
-							height: "auto",
+							height: "100%",
 							display: "block",
-							objectFit: "cover",
+							objectFit: "contain",
+							objectPosition: "center",
+							backgroundColor: "#ffffff",
 							filter: "contrast(1.10) brightness(0.9) saturate(1.1)",
 							transition: "filter 0.3s ease",
 						}}
