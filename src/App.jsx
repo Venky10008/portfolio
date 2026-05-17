@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import "./index.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -76,6 +77,7 @@ function App() {
         <Route path="/project/:id" element={<ProjectPageLayout />} />
         <Route path="*" element={<NotFoundPage />} /> {/* Ini route 404 */}
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
